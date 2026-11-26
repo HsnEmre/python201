@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 
 
-model=YOLO("yolov8n.pt")
+model=YOLO("yolov8m.pt")
 # result=model(source=1,show=True)
 cap=cv2.VideoCapture(1)
 
@@ -11,7 +11,7 @@ while True:
     if not ret:
         break
 
-    result=model(frame,stream=True)
+    result=model(frame,stream=True,classes=[0,43])
 
     for r in result:
         frame=r.plot()
@@ -33,6 +33,14 @@ while True:
                             ,0.9
                             ,(0,0,255)
                             ,3)
+                break
+            if cls==43:
+                cv2.putText(frame,"bıcak tespit edildi"
+                                            ,(20,120)
+                                            ,cv2.FONT_HERSHEY_SIMPLEX
+                                            ,0.9
+                                            ,(0,0,255)
+                                            ,3)
                 break
         #pencere boyutunu hazırla
         frame=cv2.resize(frame,(640,640))    
