@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Editor
+.vscode/
+
+# YOLO model ağırlıkları (büyük dosyalar, ultralytics otomatik indiriyor)
+*.pt
+
+# YOLO çıktıları
+runs/
+görüntüler/
+
+# Kişisel fotoğraflar
+face.jpg
